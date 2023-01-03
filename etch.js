@@ -2,13 +2,13 @@ const gridsbody = document.querySelector('body');
 const gridsContainer = document.createElement('div');
 gridsContainer.classList.add('gridsContainer');
 gridsbody.appendChild(gridsContainer);
-
+defaultGrid(); //make the default grid if the button is not clicked
 const btn = document.querySelector('button');
 btn.addEventListener('click', function(){
   let userinput = prompt('enter a number');
   let inputCon = Number(userinput);   //convert user input to integer
   makeRows(inputCon, inputCon);
-})
+});
 
 function makeRows(rows, cols) {
   gridsContainer.style.setProperty('--grid-rows', rows);
@@ -21,8 +21,14 @@ function makeRows(rows, cols) {
     });
   };
 };
+//create a default 16 x 16 grid
+function defaultGrid(){
+  makeRows(16, 16);
+};
 
-//makeRows(16, 16);
-
+//clear the grid function
+function clearGrid(){
+  gridsbody.removeChild(gridsContainer);
+}
 
 
